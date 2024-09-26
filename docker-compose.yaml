@@ -1,0 +1,49 @@
+version: "3.9"
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: npm run dev
+    environment:
+      - NEXT_PUBLIC_WORDPRESS_URL=http://wordpress
+    networks:
+      - hackmotion
+
+  db:
+    image: mysql:8.0
+    volumes:
+      - ./db/data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: hackmotion
+      MYSQL_USER: hackmotion
+      MYSQL_PASSWORD: hackmotion
+    networks:
+      - hackmotion
+
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:latest
+    ports:
+      - "8080:80"
+    restart: always
+    volumes: ["./wordpress:/var/www/html"]
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: hackmotion
+      WORDPRESS_DB_PASSWORD: hackmotion
+      WORDPRESS_DB_NAME: hackmotion
+    networks:
+      - hackmotion
+
+networks:
+  hackmotion:
+
+volumes:
+  db:
