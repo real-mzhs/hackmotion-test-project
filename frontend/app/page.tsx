@@ -10,9 +10,9 @@ import Button from "../components/Button";
 import Tooltip from "../components/Tooltip";
 import { Card, CardContent, CardTitle } from "@/components/Card";
 import ProgressIndicator from "../components/ProgressIndicator";
-import { breakData, BreakKey } from "../lib/breakData";
-import { capitalizeFirstLetter, cn } from "../lib/utils";
-import { Accordion, AccordionItem } from "../components/Accordion";
+import { breakData, BreakKey } from "@/lib/breakData";
+import { capitalizeFirstLetter, cn } from "@/lib/utils";
+import { Accordion, AccordionItem } from "@/components/Accordion";
 import ScrollBar from "../components/ScrollBar";
 import useVideoEffect from "../hooks/useVideoEffect";
 import { ArrowRight } from "lucide-react";
@@ -29,7 +29,7 @@ const BreakChartSection: React.FC<{
   if (!data) return <div>No content available</div>;
 
   return (
-    <div className="w-full md:w-[565.5px] h-[323px] md:h-[439px] bg-[#F7F7F7] rounded-[16px] p-4 flex flex-col justify-between relative">
+    <div className="w-full md:w-[500px] xl:w-[565.5px] h-[323px] md:h-[400px] xl:h-[439px] bg-[#F7F7F7] rounded-[16px] p-4 flex flex-col justify-between relative">
       {visibleItems.map((item) => (
         <div
           key={item?.key}
@@ -50,17 +50,17 @@ const BreakChartSection: React.FC<{
         unoptimized
         src={Chart}
         alt="Chart"
-        className="absolute h-full z-5 bottom-8 -top-4 left-4 right-0 px-8 md:px-0 md:top-auto md:right-4 md:left-20 md:h-full md:max-w-[467px]"
+        className="absolute h-full z-5 bottom-8 -top-4 left-4 right-0 px-8 md:px-4 xl:px-0 md:top-auto md:right-4 md:left-16 xl:left-20 md:h-[90%] xl:h-full md:max-w-[420px] xl:max-w-[467px]"
       />
       <Tooltip
         variant="primary"
-        className="absolute top-[36%] left-[24%] md:top-[30%] md:left-[24%] transform -translate-x-1/2 -translate-y-1/2"
+        className="absolute top-[36%] left-[24%] md:top-[28%] md:left-[22%] xl:top-[30%] xl:left-[24%] transform -translate-x-1/2 -translate-y-1/2"
       >
         {data.pageContent.beforeTooltipLabel}
       </Tooltip>
       <Tooltip
         variant="accent"
-        className="absolute top-[75%] left-[75%] md:top-[80%] md:left-[82%] transform -translate-x-1/2 -translate-y-1/2"
+        className="absolute top-[75%] left-[75%] md:top-[76%] md:left-[78%] xl:top-[80%] xl:left-[82%] transform -translate-x-1/2 -translate-y-1/2"
       >
         {data.pageContent.afterTooltipLabel}
       </Tooltip>
@@ -120,18 +120,18 @@ export default function Page() {
 
   return (
     <main>
-      <Section className="flex flex-col md:flex-row gap-8 items-center md:h-[1024px]">
-        <div className="grid gap-8 md:gap-12">
-          <h1 className="text-md md:text-title w-full text-black font-medium">
+      <Section className="flex flex-col md:flex-row xl:flex-row gap-8 items-center md:h-[900px] xl:h-[1024px]">
+        <div className="grid gap-8 md:gap-10 xl:gap-12">
+          <h1 className="text-md md:text-lg xl:text-title w-full text-black font-medium">
             {formatSectionTitle(data.pageContent.section1Title)}
           </h1>
-          <div className="grid gap-8 md:gap-12">
+          <div className="grid gap-8 md:gap-10 xl:gap-12">
             <div className="grid gap-3">
-              <p className="text-base md:text-lg font-normal">
+              <p className="text-base md:text-md xl:text-lg font-normal">
                 {data.packIncludes.packIncludesHeading}
               </p>
               <Separator />
-              <ul className="border-l-[4px] grid gap-4 border-accent pl-3 text-[20px] leading-[26px] md:text-md font-medium">
+              <ul className="border-l-[4px] grid gap-4 border-accent pl-3 text-[20px] leading-[26px] md:text-lg xl:text-md font-medium">
                 <li>{data.packIncludes.packItems1}</li>
                 <li>{data.packIncludes.packItems2}</li>
                 <li>{data.packIncludes.packItems3}</li>
@@ -143,9 +143,9 @@ export default function Page() {
             </Button>
           </div>
         </div>
-        <div className="grid gap-3 md:mr-[87px] w-full md:w-fit">
+        <div className="grid gap-3 md:mr-[60px] xl:mr-[87px] w-full md:w-fit xl:w-fit">
           <BreakChartSection visibleItems={visibleItems} />
-          <div className="grid md:flex gap-3 w-full">
+          <div className="grid md:flex xl:flex gap-3 w-full">
             <Card>
               <CardTitle>{data.card1.cardTitle}</CardTitle>
               <CardContent>
@@ -186,16 +186,16 @@ export default function Page() {
         </div>
       </Section>
 
-      <Section className="grid gap-4 md:gap-[72px] my-8">
-        <div className="grid gap-4 md:gap-8">
-          <h2 className="text-title md:text-xl font-medium text-accent">
+      <Section className="grid gap-4 md:gap-[60px] xl:gap-[72px] my-8">
+        <div className="grid gap-4 md:gap-6 xl:gap-8">
+          <h2 className="text-title md:text-lg xl:text-xl font-medium text-accent">
             {data.pageContent.section2Title}
           </h2>
           <Separator />
         </div>
-        <div className="grid md:flex gap-12">
+        <div className="grid md:flex xl:flex gap-12">
           <video
-            className="w-full h-auto md:max-w-[746px]"
+            className="w-full h-auto md:max-w-[600px] xl:max-w-[746px]"
             preload="none"
             autoPlay
             loop

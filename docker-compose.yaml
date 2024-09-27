@@ -7,9 +7,11 @@ services:
     volumes:
       - ./frontend:/app
       - /app/node_modules
+      - ./sqlite_data:/app/sqlite_data
     command: npm run dev
     environment:
       - NEXT_PUBLIC_WORDPRESS_URL=http://wordpress
+      - DATABASE_URL=file:/app/sqlite_data/analytics.db
     networks:
       - hackmotion
 
