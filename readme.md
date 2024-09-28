@@ -7,8 +7,6 @@
 - [Getting Started](#getting-started)
 - [WordPress Setup](#wordpress-setup)
 - [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Tech Stack
 
@@ -27,6 +25,7 @@ Before you begin, ensure you have the following installed on your system:
 
 - Git
 - Docker and Docker Compose
+- Node.js and npm
 
 ## Getting Started
 
@@ -41,18 +40,23 @@ Follow these steps to set up the project locally:
 2. Navigate to the project directory:
 
    ```
-   cd hackmotion-test-project
+   cd hackmotion-test-project\frontend
    ```
 
-3. Start the Docker containers:
+3. Generate Prisma Client
+
+   ```
+   npx prisma generate
+
+   ```
+
+4. Start the Docker containers:
 
    ```
    docker-compose up -d
    ```
 
-   This command will download necessary images and start the containers in detached mode.
-
-4. Once the containers are up and running, you can access the WordPress setup at:
+5. Once the containers are up and running, you can access the WordPress setup at:
    ```
    http://localhost:8080/wp-admin/
    ```
