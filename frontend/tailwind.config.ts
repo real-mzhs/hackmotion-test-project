@@ -14,17 +14,18 @@ const config: Config = {
         accent: "var(--accent)",
       },
       fontSize: {
-        footer: ["12px", "16px"],
-        xs: ["14px", "18px"],
-        sm: ["16px", "24px"],
-        base: ["20px", "30px"],
-        md: ["24px", "31.2px"],
-        lg: ["24px", "36px"],
-        title: ["32px", "41.6px"],
-        xl: ["48px", "62.4px"],
+        footer: ["var(--footer-font-size)", "1.333"],
+        xs: ["var(--xs-font-size)", "1.286"],
+        sm: ["var(--sm-font-size)", "1.5"],
+        base: ["var(--base-font-size)", "1.5"],
+        md: ["var(--md-font-size)", "1.3"],
+        lg: ["var(--lg-font-size)", "1.5"],
+        title: ["var(--title-font-size)", "1.3"],
+        xl: ["var(--xl-font-size)", "1.3"],
       },
     },
   },
   plugins: [],
 };
+
 export default config;

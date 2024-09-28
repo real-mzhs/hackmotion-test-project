@@ -47,7 +47,6 @@ Follow these steps to set up the project locally:
 
    ```
    npx prisma generate
-
    ```
 
 4. Start the Docker containers:
@@ -81,7 +80,13 @@ To set up WordPress and import the provided content:
 
 7. Follow the prompts to complete the import process.
 
+8. Save the permalinks structure.
+
 After completing these steps, your WordPress site should be populated with the imported content.
+
+You will then be required to login to the WordPress admin panel using the provided credentials:
+username: `hackmotion`
+password: `hackmotion-password-123`
 
 The Next.js frontend of your application should now be accessible at:
 

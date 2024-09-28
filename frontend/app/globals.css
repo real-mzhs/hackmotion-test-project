@@ -6,6 +6,14 @@
   --background: #e6e6e6;
   --foreground: #000000;
   --accent: #5773ff;
+  --footer-font-size: 12px;
+  --xs-font-size: 14px;
+  --sm-font-size: 16px;
+  --base-font-size: 20px;
+  --md-font-size: 24px;
+  --lg-font-size: 24px;
+  --title-font-size: 32px;
+  --xl-font-size: 48px;
 }
 
 body {
